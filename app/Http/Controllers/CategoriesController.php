@@ -20,18 +20,19 @@ class CategoriesController extends Controller
 
         $url = env('URL_SERVER_API');
 
-        $categories = $this->fetchDataFromApi($url . '/categories?included=post');
- 
-        return $categories;
+        $categories = $this->fetchDataFromApi($url . '/categories');
+
+
 
         return view('categories.index', compact('categories'));
     }
 
     public function show($id)
     {
+
         $url = env('URL_SERVER_API');
 
-        $category = $this->fetchDataFromApi($url . '/category/' . $id);
+        $category = $this->fetchDataFromApi($url . '/categories/' . $id);
 
         return view('categories.show', compact('category'));
     }

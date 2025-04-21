@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,11 @@ use App\Http\Controllers\CategoriesController;
 // });
 
 
-Route::get('categories', [CategoriesController::class, 'index'])->name('categories.index');
-Route::get('category/{id}',[CategoriesController::class,'show'])->name('category.show');
+Route::get('categories', [CategoriesController::class, 'index'])->name('categories');
+Route::get('categories/{category}', [CategoriesController::class, 'show'])->name('category.show');
+
+Route::get('posts', [PostController::class, 'index'])->name('posts');
+
+Route::get('home', [HomeController::class, 'index'])->name('home.index');
+Route::get('mision_vision', [HomeController::class, 'mision_vision'])->name('home.mision_vision');
+Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');

@@ -1,19 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de Categorias</h1>
-    <div>
+    <div class="container mt-4">
+        <h1 class="mb-4">Lista de Categorías</h1>
 
-        <br><br><br>
-        <table>
-            <thead>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>SLUG</th>
-                    <th>DETALLE</th>
-                    <th>ELIMINAR</th>
-                    <th>Actualizar datos</th>
+                    <th>Nombre</th>
+                    <th>Slug</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,18 +19,12 @@
                         <td>{{ $category['id'] }}</td>
                         <td>{{ $category['name'] }}</td>
                         <td>{{ $category['slug'] }}</td>
-
-                        <td><a href="{{ route('category.show', $category['id']) }}"><button>Ver más</button></a></td>
                         <td>
-                            {{-- <form action="{{ route('apprentices.destroy', $apprentice['id']) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Eliminar</button>
-                </form> --}}
+                            <a href="{{ route('category.show', $category['id']) }}" class="btn btn-info btn-sm">Ver más</a>
                         </td>
-                        {{-- <td><a href="{{ route('apprentices.view', $apprentice['id']) }}"><button>Editar</button></a></td> --}}
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    @endsection
+    </div>
+@endsection
