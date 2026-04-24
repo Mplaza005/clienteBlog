@@ -22,8 +22,6 @@ class CategoriesController extends Controller
 
         $categories = $this->fetchDataFromApi($url . '/categories');
 
-
-
         return view('categories.index', compact('categories'));
     }
 

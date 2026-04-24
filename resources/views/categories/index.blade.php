@@ -18,7 +18,7 @@
                     <tr>
                         <td>{{ $category['id'] }}</td>
                         <td>{{ $category['name'] }}</td>
-                        <td>{{ $category['slug'] }}</td>
+                        {{-- <td>{{ $category['slug'] }}</td> --}}
                         <td>
                             <a href="{{ route('category.show', $category['id']) }}" class="btn btn-info btn-sm">Ver más</a>
                         </td>
