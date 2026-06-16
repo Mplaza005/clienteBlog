@@ -24,8 +24,12 @@ use App\Http\Controllers\HomeController;
 Route::get('categories', [CategoriesController::class, 'index'])->name('categories');
 Route::get('categories/{category}', [CategoriesController::class, 'show'])->name('category.show');
 
-Route::get('posts', [PostController::class, 'index'])->name('posts');
 
+Route::get('posts', [PostController::class, 'index'])->name('categories');
+
+
+
+Route::get('posts', [PostController::class, 'index'])->name('posts');
 Route::get('home', [HomeController::class, 'index'])->name('home.index');
 Route::get('mision_vision', [HomeController::class, 'mision_vision'])->name('home.mision_vision');
 Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');
