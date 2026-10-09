@@ -33,6 +33,6 @@ Route::delete('category/{category}', [CategoriesController::class, 'destroy'])->
 
 Route::get('posts', [PostController::class, 'index'])->name('categories');
 Route::get('posts', [PostController::class, 'index'])->name('posts');
- Route::get('home', [HomeController::class, 'index'])->name('home.index');
+Route::get('home', [HomeController::class, 'index'])->name('home.index');
 Route::get('mision_vision', [HomeController::class, 'mision_vision'])->name('home.mision_vision');
 Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');

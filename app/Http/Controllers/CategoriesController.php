@@ -37,7 +37,10 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        return view('categories.create');
+        $url = env('URL_SERVER_API');
+        $posts = Http::get($url .'/posts')->json();
+
+        return view('categories.create',compact('posts'));
     }
 
     public function store(Request $request)
