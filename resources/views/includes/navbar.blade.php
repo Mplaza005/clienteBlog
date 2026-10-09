@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{{ route('posts') }}">Publicaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('categories') }}">Categorias</a>
+                    <a class="nav-link" href="{{ route('categories.index') }}">Categorias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home.contact') }}">Contactanos</a>

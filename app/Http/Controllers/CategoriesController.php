@@ -21,7 +21,7 @@ class CategoriesController extends Controller
         $url = env('URL_SERVER_API');
 
         $categories = $this->fetchDataFromApi($url . '/categories');
-
+        // return $categories;
         return view('categories.index', compact('categories'));
     }
 
@@ -33,5 +33,42 @@ class CategoriesController extends Controller
         $category = $this->fetchDataFromApi($url . '/categories/' . $id);
 
         return view('categories.show', compact('category'));
+    }
+
+    public function create()
+    {
+        return view('categories.create');
+    }
+
+    public function store(Request $request)
+    {
+        $url = env('URL_SERVER_API');
+
+        Http::post($url . '/categories', $request->all());
+
+        return redirect()->route('categories.index');
+    }
+
+    public function edit($id)
+    {
+        $url = env('URL_SERVER_API');
+        $category = $this->fetchDataFromApi($url . '/categories/' . $id);
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $url = env('URL_SERVER_API');
+
+        Http::put($url . '/categories/' . $id, $request->all());
+
+        return redirect()->route('categories.index');
+    }
+
+      public function destroy($id)
+    {
+        $url = env('URL_SERVER_API');
+        Http::delete($url . '/categories/' . $id);
+        return redirect()->route('categories.index');
     }
 }
