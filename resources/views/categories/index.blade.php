@@ -24,12 +24,14 @@
                     <tr>
                         <td>{{ $category['id'] }}</td>
                         <td>{{ $category['name'] }}</td>
-
+                        <td><img src="{{ $category['imagen_url'] }}" alt="{{ $category['name'] }}" width="100">
+                        </td>
                         <td>
                             <a href="{{ route('category.show', $category['id']) }}" class="btn btn-info btn-sm">Ver más</a>
                         </td>
                         <td>
-                            <a href="{{ route('category.edit', $category['id']) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{{ route('category.edit', $category['id']) }}"
+                                class="btn btn-warning btn-sm">Editar</a>
                         </td>
                         <td>
                             <form action="{{ route('category.destroy', $category['id']) }}" method="POST"

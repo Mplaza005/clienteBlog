@@ -38,16 +38,24 @@ class CategoriesController extends Controller
     public function create()
     {
         $url = env('URL_SERVER_API');
-        $posts = Http::get($url .'/posts')->json();
+        $posts = Http::get($url . '/posts')->json();
 
-        return view('categories.create',compact('posts'));
+        return view('categories.create', compact('posts'));
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+        ]);
+
         $url = env('URL_SERVER_API');
 
-        Http::post($url . '/categories', $request->all());
+        $file = $request->file('imagen');
+
+        $response = Http::attach('imagen',file_get_contents($file->getRealPath()),$file->getClientOriginalName())
+        ->post(env('URL_SERVER_API') . '/categories',['name' => $request->name,]);
 
         return redirect()->route('categories.index');
     }
@@ -68,7 +76,7 @@ class CategoriesController extends Controller
         return redirect()->route('categories.index');
     }
 
-      public function destroy($id)
+    public function destroy($id)
     {
         $url = env('URL_SERVER_API');
         Http::delete($url . '/categories/' . $id);

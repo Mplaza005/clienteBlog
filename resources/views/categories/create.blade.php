@@ -14,19 +14,39 @@
         </label>
         <br><br>
         <div class="mb-3">
-            <label for="post_id" class="form-label">Seleccionar publicación</label>
-            <br><br>
-            <select name="post_id" id="post_id" class="form-select">
-                <option value="">Seleccione una publicación</option>
-
-                @foreach ($posts as $post)
-                    <option value="{{ $post['id'] }}">
-                        {{ $post['name'] }}
-                    </option>
-                @endforeach
-            </select>
+            <label class="form-label">Imagen</label>
+            <input type="file" name="imagen" class="form-control" accept="image/*">
         </div>
-        <br><br>
+         <div class="mb-3">
+                <label for="post_id" class="form-label">Seleccionar publicación</label>
+                <br><br>
+                <select name="post_id" id="post_id" class="form-select">
+                    <option value="">Seleccione una publicación</option>
+
+                    @foreach ($posts as $post)
+                        <option value="{{ $post['id'] }}">
+                            {{ $post['name'] }}
+                        </option>
+                    @endforeach
+                </select>
+        {{-- <div class="mb-3">
+                <label class="form-label">Imagen</label>
+                <input type="file" name="imagen" class="form-control" accept="image/*" required>
+            </div>
+            <div class="mb-3">
+                <label for="post_id" class="form-label">Seleccionar publicación</label>
+                <br><br>
+                <select name="post_id" id="post_id" class="form-select">
+                    <option value="">Seleccione una publicación</option>
+
+                    @foreach ($posts as $post)
+                        <option value="{{ $post['id'] }}">
+                            {{ $post['name'] }}
+                        </option>
+                    @endforeach
+                </select>
+            </div> --}}
+
         <button type="submit" class="btn btn-outline-success btn-sm">Enviar Formulario:</button>
         <br><br>
     </form>
